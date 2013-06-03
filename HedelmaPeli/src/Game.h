@@ -18,12 +18,17 @@ private:
 	float bet;
 	float reward;
 	string values[3][30];
+
 public:
 	Game();
 	virtual ~Game();
-
-	void run();
-	void show();
+	int run();
+	string show();
+	float pay(string aResult);
+	float getBet() const;
+	void setBet(float bet);
+	float getReward() const;
+	void setReward(float reward);
 };
 
 #endif /* GAME_H_ */

@@ -6,7 +6,8 @@
  */
 
 #include "Game.h"
-
+#include <iostream>
+using namespace std;
 Game::Game() {
 	// TODO Auto-generated constructor stub
 	/**
@@ -54,4 +55,67 @@ Game::Game() {
 Game::~Game() {
 	// TODO Auto-generated destructor stub
 }
+int Game::run()
+{
+	int value=rand()%30;
+	return value;
+}
 
+string Game::show()
+{
+	int i;
+	string result="";
+	for(i=0;i<3;i++)
+	{
+		result+=values[i][this->run()];
+	}
+	return result;
+}
+
+float Game::getBet() const {
+	return bet;
+}
+
+void Game::setBet(float bet) {
+	this->bet = bet;
+}
+
+float Game::getReward() const {
+	return reward;
+}
+
+void Game::setReward(float reward) {
+	this->reward = reward;
+}
+
+float Game::pay(string aResult)
+{
+	if(aResult=="JJJ")
+	{
+		return bet*200;
+	}
+	else if(aResult=="777")
+	{
+		return bet*150;
+	}
+	else if(aResult == "HHH")
+	{
+		return bet*80;
+	}
+	else if(aResult=="PPP")
+	{
+		return bet*50;
+	}
+	else if(aResult=="AAA")
+	{
+		return bet*25;
+	}
+	else if(aResult=="111")
+	{
+		return bet;
+	}
+	else
+	{
+		return 0.0;
+	}
+}
